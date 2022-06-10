@@ -9,18 +9,40 @@ let images = [
 let header = document.getElementById('header');
 let imgContainer = document.getElementById('image-container');
 let bigScreen = document.getElementById('bigScreen');
-let symbols = document.getElementById('bigScreenSymbols')
+let symbols = document.getElementById('bigScreenSymbols');
+
+let container1 = document.getElementById('container1');
+let container2 = document.getElementById('container2');
+let container3 = document.getElementById('container3');
+
 
 function renderImages() {
-
+  /*
   for (let i = 0; i < images.length; i++) {
     imgContainer.innerHTML += `
-        <div class="img-box">
-          <img onclick="openImg(${i})" src="${images[i]}">
-        </div>
-      `;
-  }
+    <div class="img-box">
+      <img onclick="openImg(${i})" src="${images[i]}">
+    </div>
+  `;
+  }*/
+
+  pushImgContainer(0, 2, container1)
+  pushImgContainer(1, 2, container2)
+  pushImgContainer(2, 2, container3)
+
 };
+
+function pushImgContainer(start, n, container) {
+  for (let i = start; i < images.length; i++) {
+    container.innerHTML += `
+    <div class="img-box">
+      <img onclick="openImg(${i})" src="${images[i]}">
+    </div>
+  `;
+    i = i + n;
+  }
+
+}
 
 function openImg(i) {
   bigPic()
